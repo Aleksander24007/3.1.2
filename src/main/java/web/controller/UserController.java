@@ -13,6 +13,7 @@ import java.util.List;
 @Controller
 public class UserController {
     private final UserService userService;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String addUser(@ModelAttribute("user") User user) {
+    public String add(@ModelAttribute("user") User user) {
         return "newUser";
     }
 
@@ -37,20 +38,20 @@ public class UserController {
     }
 
     @GetMapping("/user_{id}/edit")
-    public String editUser(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getByUser(id));
+    public String edit(@PathVariable("id") int id, Model model) {
+        model.addAttribute("user", userService.getById(id));
         return "edit";
     }
 
     @PatchMapping("/user_{id}")
     public String update(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
+        userService.update(user);
         return "redirect:/";
     }
 
     @DeleteMapping("/user_{id}")
     public String remove(@PathVariable("id") int id) {
-        userService.removeUser(id);
+        userService.remove(id);
         return "redirect:/";
     }
 

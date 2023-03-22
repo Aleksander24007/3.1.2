@@ -14,7 +14,8 @@ public class User {
     private String lastName;
     private int age;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name, String lastName, int age) {
         this.name = name;

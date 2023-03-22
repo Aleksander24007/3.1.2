@@ -5,8 +5,9 @@ import web.model.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     private final EntityManager entityManager;
 
@@ -20,17 +21,17 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public User getByUser(int id) {
+    public User getById(int id) {
         return entityManager.createQuery("from User WHERE id = :id", User.class).setParameter("id", id).getSingleResult();
     }
 
     @Override
-    public void removeUser(int id) {
-        entityManager.remove(getByUser(id));
+    public void remove(int id) {
+        entityManager.remove(getById(id));
     }
 
     @Override
-    public void updateUser(User user) {
+    public void update(User user) {
         entityManager.merge(user);
     }
 

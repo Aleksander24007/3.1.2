@@ -23,8 +23,13 @@ import java.util.Properties;
 @EnableJpaRepositories(basePackages = "web.dao")
 @ComponentScan("web")
 public class AppConfig {
-    @Autowired
+
     private Environment env;
+
+    @Autowired
+    public void setenv(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {
