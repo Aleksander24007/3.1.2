@@ -25,20 +25,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public User getById(int id) {
-        return userDao.getById(id);
+    public User getUserById(int id) {
+        return userDao.getUserById(id);
     }
 
     @Override
     @Transactional
-    public void remove(int id) {
-        userDao.remove(id);
+    public void removeUser(int id) {
+        userDao.removeUser(id);
     }
 
     @Override
     @Transactional
-    public void update(User user) {
-        userDao.update(user);
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
