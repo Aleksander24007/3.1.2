@@ -20,14 +20,14 @@ public class UserController {
     }
 
     @GetMapping(value = "/")
-    public String getAllUsers(ModelMap model) {
+    public String openPageIndex(ModelMap model) {
         List<User> list = userService.getAllUser();
         model.addAttribute("list", list);
         return "index";
     }
 
     @GetMapping("/new")
-    public String addUser(@ModelAttribute("user") User user) {
+    public String openPageNewUser(@ModelAttribute("user") User user) {
         return "newUser";
     }
 
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/user_{id}/edit")
-    public String editUser(@PathVariable("id") int id, Model model) {
+    public String openPageEdit(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "edit";
     }
