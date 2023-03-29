@@ -1,11 +1,10 @@
-package com.example.User.service;
+package com.example.user.service;
 
 
-import com.example.User.model.User;
-import com.example.User.repositories.UserRepository;
+import com.example.user.model.User;
+import com.example.user.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
